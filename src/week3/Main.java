@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		
 		//Question 1
 		int[] ages = {3, 9, 23, 64, 2, 8, 28, 93, 77};
 		//calculate first entry subtracted from the last entry
@@ -73,12 +74,18 @@ public class Main {
 		System.out.println(decimalAverage(decimals));
 		
 		//Question 11
-		double[] decimalsOne = {3.14, 6.66, 2.71, 13.97, 99.99, 0.13};
+		double[] decimalsOne = {3.14, 6.66, 2.71, 13.97, 99.99, 0.13, 66.66};
 		double[] decimalsTwo = {3.14, 6.66, 2.71, 13.97, 99.99, 0.13};
+		System.out.println(compareAverage(decimalsOne, decimalsTwo));
 		
 		//Question 12
+		System.out.println(willBuyDrink(true, 12.50));
 		
-		//Question 13
+		/*Question 13
+		  I created a function to convert the temperature from celsius to fahrenheight and visa versa, 
+		  because I've always found it useful to be able to convert between the two. */
+		System.out.println("The converted temperature is " + tempConversion(95, "f") + " degrees.");
+		
 		}
 	
 	    //Question 7
@@ -118,11 +125,47 @@ public class Main {
 	}
 	
 	//Question 11
-	
+	public static boolean compareAverage(double[] array1, double[] array2) {
+		double sum1 = 0;
+		double sum2 = 0;
+		
+		for (int i = 0; i < array1.length; i++) {
+			sum1 += array1[i];
+		}
+        
+		for (int i = 0; i < array2.length; i++) {
+			sum2 += array2[i];
+		}
+        
+		double average1 = sum1 / array1.length;
+        double average2 = sum2 / array2.length;
+        
+        if (average1 > average2) {
+        	return true;
+        } else {
+        	return false;
+        }
+	}
 	
 	//Question 12
-	
+	public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+		if (isHotOutside == true && moneyInPocket > 10.50) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	//Question 13
+	public static double tempConversion(double temp, String unit) {
+		double convertedTemp = 0;
+		if (unit.equalsIgnoreCase("c")) {
+			convertedTemp = temp * 9 / 5 + 32;
+		}
+		if (unit.equalsIgnoreCase("f")) {
+			convertedTemp = ((temp - 32) * 5)/ 9;
+		}
+		return convertedTemp;
+	}
 	 
 	}
